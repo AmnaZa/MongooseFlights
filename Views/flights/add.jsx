@@ -1,12 +1,18 @@
 const React = require('react');
-const MainLayout = require('../layouts/main');
+import MainLayout from '../layouts/main';
 
 const AddFlight = () => {
   return (
     <MainLayout>
       <div>
         <h1>Add Flight</h1>
-        {/* Your form elements here */}
+        <form action="/flights" method="POST">
+          <label>Airline:</label>
+          <input type="text" name="airline" required />
+          <label>Flight No.:</label>
+          <input type="text" name="flightNo" required />
+          <button type="submit">Add Flight</button>
+        </form>
       </div>
     </MainLayout>
   );

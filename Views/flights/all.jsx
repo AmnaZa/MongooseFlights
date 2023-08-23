@@ -1,5 +1,6 @@
 const React = require('react');
-const MainLayout = require('../layouts/main');
+import MainLayout from '../layouts/main';
+
 
 const AllFlights = ({ flights }) => {
   return (
@@ -9,7 +10,8 @@ const AllFlights = ({ flights }) => {
         <ul>
           {flights.map((flight) => (
             <li key={flight._id}>
-              Airline: {flight.airline}, Flight No.: {flight.flightNo}, Departure: {flight.departs}
+              Airline: {flight.airline}, Flight No.: {flight.flightNo}
+              <a href={`/flights/${flight._id}`}> View Details</a>
             </li>
           ))}
         </ul>

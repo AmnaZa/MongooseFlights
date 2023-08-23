@@ -1,35 +1,114 @@
-/* public/styles.css */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+
+body, h1, h2, h3, p, ul, li {
   margin: 0;
   padding: 0;
 }
 
+/* Basic styling for the body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Header styles */
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Navigation styles */
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Page container */
 .container {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 20px;
-  background-color: white;
+}
+
+/* Form styles */
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 20px;
+form button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.details {
-  font-size: 18px;
-  margin-bottom: 20px;
+/* Flight list styles */
+ul.flight-list {
+  list-style: none;
+  padding: 0;
 }
 
-.link {
+.flight-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.flight-item a {
   color: #007bff;
   text-decoration: none;
 }
 
-.link:hover {
-  text-decoration: underline;
+/* Flight details styles */
+.details-container {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.details-header {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.details-info {
+  margin-bottom: 20px;
+}
+
+.details-info p {
+  margin-bottom: 5px;
+}
+
+.details-destinations ul {
+  list-style: none;
+  padding: 0;
+}
+
+.details-destinations li {
+  margin-bottom: 5px;
 }

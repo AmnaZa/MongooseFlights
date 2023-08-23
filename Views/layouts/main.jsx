@@ -5,7 +5,7 @@ const MainLayout = ({ children }) => {
     <html>
       <head>
         <title>Flight App</title>
-        <link rel="stylesheet" type="text/css" href="../public/styles.css" />
+        <link rel="stylesheet" type="text/css" href="/styles.css" /> {/* Update the path */}
       </head>
       <body>
         <header>

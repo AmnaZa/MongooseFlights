@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const Flight = require('./models/FlightModel');
+const Flight = require('./models/FlightModel'); // Import the Flight model
 const app = express();
 const PORT = process.env.PORT || 3000;
 const reactViews = require('express-react-views');
@@ -12,6 +12,7 @@ app.set('views', path.join(__dirname, 'Views'));
 app.set('view engine', 'jsx');
 app.engine('jsx', reactViews.createEngine());
 
+// Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -21,9 +22,11 @@ mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
+// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Display all flights
 app.get('/', async (req, res) => {
   try {
     const flights = await Flight.find().sort({ departs: 1 });
@@ -34,10 +37,12 @@ app.get('/', async (req, res) => {
   }
 });
 
+// Display add flight form
 app.get('/add', (req, res) => {
   res.render('flights/add');
 });
 
+// Create a new flight
 app.post('/flights', async (req, res) => {
   try {
     const { airline, flightNo } = req.body;
@@ -50,6 +55,7 @@ app.post('/flights', async (req, res) => {
   }
 });
 
+// Display flight details
 app.get('/flights/:id', async (req, res) => {
   try {
     const flight = await Flight.findById(req.params.id);
@@ -60,6 +66,7 @@ app.get('/flights/:id', async (req, res) => {
   }
 });
 
+// Add a destination to a flight
 app.post('/flights/:id', async (req, res) => {
   try {
     const flight = await Flight.findById(req.params.id);
@@ -73,6 +80,7 @@ app.post('/flights/:id', async (req, res) => {
   }
 });
 
+// Listen to the specified port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
